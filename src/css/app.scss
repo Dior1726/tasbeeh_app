@@ -1,0 +1,34 @@
+// app global css in SCSS form
+
+.border-b {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+// Rounded 
+.rounded-xs {
+  border-radius: $rounded-xs;
+}
+
+.rounded-sm {
+  border-radius: $rounded-sm;
+}
+
+.rounded-md {
+  border-radius: $rounded-md;
+}
+
+.rounded-lg {
+  border-radius: $rounded-lg;
+}
+
+.rounded-xl {
+  border-radius: $rounded-xl;
+}
+
+.rounded-2xl {
+  border-radius: $rounded-2xl;
+}
+
+.rounded-full {
+  border-radius: 50%;
+}
