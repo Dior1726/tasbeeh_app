@@ -1,26 +1,19 @@
 <script setup>
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 import { useRoute } from "vue-router";
 import { appLinks } from "../constants/links";
 
 const route = useRoute();
 const left = ref(false);
-
-const pageName = () => {
-  return route.meta.name;
-};
-
-const routeName = () => {
-  return (
-    route.name != "quran_detail" &&
-    route.name != "about" &&
-    route.name != "zikr_detail"
-  );
-};
+const pageName = ref(route.meta.name);
 
 const toggleLeftDrawer = () => {
   left.value = !left.value;
 };
+
+watchEffect(() => {
+  pageName.value = route.meta.name;
+});
 </script>
 
 <template>
@@ -38,11 +31,8 @@ const toggleLeftDrawer = () => {
           icon="menu"
           @click="toggleLeftDrawer"
         />
-        <q-avatar class="lt-sm">
-          <img src="../assets/img/tasbeeh.png" />
-        </q-avatar>
-        <q-toolbar-title class="text-weight-bold">
-          Tasbeeh app
+        <q-toolbar-title class="absolute-center text-h6">
+          {{ pageName }}
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
