@@ -8,7 +8,7 @@ const routes = [
         name: "Home",
         component: () => import("pages/Index.vue"),
         meta: {
-          name: "Время намаза",
+          name: "Главная страница",
         },
       },
       {
@@ -29,7 +29,7 @@ const routes = [
       },
       {
         path: "zikr/:id",
-        name: "zikr_detail",
+        name: "Zikr_detail",
         component: () => import("src/pages/ZikrDetail.vue"),
       },
       {
@@ -42,7 +42,7 @@ const routes = [
       },
       {
         path: "quran/:id",
-        name: "quran_detail",
+        name: "Quran_detail",
         component: () => import("src/pages/BookDetail.vue"),
       },
       {

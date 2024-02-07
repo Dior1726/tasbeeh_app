@@ -1,15 +1,7 @@
 <script setup>
 import { ref } from "vue";
 
-const loading = ref(true);
-
-document.onreadystatechange = () => {
-  if (document.readyState == "complete") {
-    setTimeout(() => {
-      loading.value = false;
-    }, 1200);
-  }
-};
+const loading = ref(false);
 </script>
 
 <template>

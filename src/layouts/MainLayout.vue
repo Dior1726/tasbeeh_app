@@ -23,12 +23,12 @@ watchEffect(() => {
 <template>
   <q-layout
     view="lHh LpR lFf"
-    :class="[route.name === 'quran_detail' ? 'bg-secondary' : 'mosque-bg']"
+    :class="[route.name === 'Quran_detail' ? 'bg-secondary' : 'mosque-bg']"
   >
     <q-header class="text-white">
       <q-toolbar>
         <q-btn
-          v-if="routeName == 'quran_detail' || routeName == 'zikr_detail'"
+          v-if="routeName == 'Quran_detail' || routeName == 'Zikr_detail'"
           flat
           icon="arrow_back"
           color="white"
