@@ -1,3 +1,31 @@
+<script setup>
+import { ref } from "vue";
+import { useRoute } from "vue-router";
+import ApiService from "src/services/api.service";
+
+const route = useRoute();
+
+const surah = ref(null);
+const loading = ref(false);
+const id = ref(route.params.id);
+
+const getSurahById = async () => {
+  loading.value = true;
+  try {
+    const response = await ApiService.get(
+      `https://quran-endpoint.vercel.app/quran/${id.value}`
+    );
+    surah.value = response.data.data;
+  } catch (error) {
+    console.error(error);
+  } finally {
+    loading.value = false;
+  }
+};
+
+getSurahById();
+</script>
+
 <template>
   <q-page class="">
     <div class="flex justify-center q-py-md" v-if="loading">
@@ -12,58 +40,29 @@
       <div class="flex justify-between q-px-lg text-subtitle2 q-mb-md">
         <p style="width: 50px">{{ surah.number }}</p>
         <p>{{ surah.asma.en.long }}</p>
-        <p>{{ surah.asma.ar.long }}</p>
+        <p class="verse-text">{{ surah.asma.ar.long }}</p>
       </div>
       <p class="verse-text q-mb-xl" v-if="surah.preBismillah">
         {{ surah.preBismillah.text.ar }}
       </p>
-      <p
+      <div
         v-for="sura in surah.ayahs"
         :key="sura.number.inquran"
-        class="text-h6 border-b q-px-md verse-text"
+        class="text-h6 border-b q-px-md"
       >
-        {{ sura.text.ar }}<br />
+        <div class="verse-text">
+          {{ sura.text.ar }}
+        </div>
         <div>
           <span class="text-caption">{{ sura.number.insurah }}. </span>
           <span class="text-body1">{{ sura.text.read }}</span>
         </div>
-      </p>
+      </div>
     </div>
   </q-page>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      surah: null,
-      id: this.$route.params.id,
-      loading: true,
-    };
-  },
-  created() {
-    if (this.id) {
-      this.getSurahById();
-    }
-  },
-  mounted() {},
-  methods: {
-    getSurahById() {
-      this.$axios
-        .get(`https://quran-endpoint.vercel.app/quran/${this.id}`)
-        .then((res) => {
-          this.surah = res.data.data;
-          this.loading = false;
-        })
-        .catch((e) => {
-          console.log(e.message);
-        });
-    },
-  },
-};
-</script>
-
-<style lang="scss" scoped>
+<style lang="scss">
 .surah {
   text-align: center;
 }
@@ -72,6 +71,5 @@ export default {
   font-size: 28px;
   font-weight: normal;
   font-family: "Hafs", sans-serif;
-  // font-family: "Nabi", sans-serif;
 }
 </style>

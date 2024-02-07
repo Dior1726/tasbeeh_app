@@ -2,10 +2,13 @@
 import { ref, watchEffect } from "vue";
 import { useRoute } from "vue-router";
 import { appLinks } from "../constants/links";
+import useGoBack from "../composables/useGoBack";
 
+const { goBack } = useGoBack();
 const route = useRoute();
 const left = ref(false);
 const pageName = ref(route.meta.name);
+const routeName = ref(route.name);
 
 const toggleLeftDrawer = () => {
   left.value = !left.value;
@@ -13,6 +16,7 @@ const toggleLeftDrawer = () => {
 
 watchEffect(() => {
   pageName.value = route.meta.name;
+  routeName.value = route.name;
 });
 </script>
 
@@ -23,6 +27,14 @@ watchEffect(() => {
   >
     <q-header class="text-white">
       <q-toolbar>
+        <q-btn
+          v-if="routeName == 'quran_detail' || routeName == 'zikr_detail'"
+          flat
+          icon="arrow_back"
+          color="white"
+          size="md"
+          @click="goBack"
+        />
         <q-btn
           class="gt-xs"
           dense
