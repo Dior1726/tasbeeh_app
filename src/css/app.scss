@@ -1,10 +1,11 @@
 // app global css in SCSS form
+@import "./font.scss";
 
 .border-b {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-// Rounded 
+// Rounded
 .rounded-xs {
   border-radius: $rounded-xs;
 }
