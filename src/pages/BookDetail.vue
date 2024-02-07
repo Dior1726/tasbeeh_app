@@ -29,11 +29,11 @@ getSurahById();
 <template>
   <q-page>
     <div class="flex justify-center q-py-md" v-if="loading">
-      <q-spinner-ios color="white" size="30px" />
+      <q-spinner-ios color="secondary" size="30px" />
     </div>
 
     <div
-      class="surah q-py-md text-white q-mx-auto"
+      class="surah q-py-md q-mx-auto"
       v-if="surah || !loading"
       style="max-width: 700px"
     >
@@ -53,7 +53,7 @@ getSurahById();
       <div
         v-for="sura in surah.ayahs"
         :key="sura.number.inquran"
-        class="text-h6 border-b q-px-md q-mb-sm"
+        class="text-h6 q-px-md q-mb-sm"
       >
         <div class="verse-text">
           {{ sura.text.ar }}

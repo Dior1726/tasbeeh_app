@@ -21,10 +21,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <q-layout
-    view="lHh LpR lFf"
-    :class="[route.name === 'Quran_detail' ? 'bg-secondary' : 'mosque-bg']"
-  >
+  <q-layout view="lHh LpR lFf" class="bg-white">
     <q-header class="text-white">
       <q-toolbar>
         <q-btn
@@ -111,37 +108,23 @@ watchEffect(() => {
 
 <style lang="scss">
 .q-drawer {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 1);
   backdrop-filter: blur(4px);
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .mosque-bg {
-  background: url("../assets/img/mosque.png") center bottom no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-
-  @media (min-width: 767px) {
-    background: url("../assets/img/desk1.jpg") center bottom no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-  }
-
-  @supports (-webkit-overflow-scrolling: touch) {
-    .mosque-bg {
-      background-attachment: fixed;
-    }
-  }
+  background-color: $secondary;
 }
 
 .q-header {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 1);
   backdrop-filter: blur(4px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
 
 .q-footer {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 1);
   backdrop-filter: blur(10px);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;

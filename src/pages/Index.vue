@@ -105,13 +105,13 @@ const { data: hadeeths, isLoading } = useQuery({
 
 <style lang="scss" scoped>
 .time-box {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 1);
   backdrop-filter: blur(4px);
   color: #fff;
 }
 
 .dua-weakly {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 1);
   backdrop-filter: blur(4px);
 }
 
