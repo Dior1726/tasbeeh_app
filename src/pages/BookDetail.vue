@@ -27,7 +27,7 @@ getSurahById();
 </script>
 
 <template>
-  <q-page class="">
+  <q-page>
     <div class="flex justify-center q-py-md" v-if="loading">
       <q-spinner-ios color="white" size="30px" />
     </div>
@@ -42,13 +42,18 @@ getSurahById();
         <p>{{ surah.asma.en.long }}</p>
         <p class="verse-text">{{ surah.asma.ar.long }}</p>
       </div>
+      <div class="q-mb-lg">
+        <audio controls>
+          <source :src="surah.recitation.full" />
+        </audio>
+      </div>
       <p class="verse-text q-mb-xl" v-if="surah.preBismillah">
         {{ surah.preBismillah.text.ar }}
       </p>
       <div
         v-for="sura in surah.ayahs"
         :key="sura.number.inquran"
-        class="text-h6 border-b q-px-md"
+        class="text-h6 border-b q-px-md q-mb-sm"
       >
         <div class="verse-text">
           {{ sura.text.ar }}
