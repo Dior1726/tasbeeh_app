@@ -46,6 +46,14 @@ const routes = [
         component: () => import("src/pages/BookDetail.vue"),
       },
       {
+        path: "quran",
+        name: "Hadeeths",
+        component: () => import("src/pages/Hadeeths.vue"),
+        meta: {
+          name: "Коран",
+        },
+      },
+      {
         path: "about",
         name: "about",
         component: () => import("src/pages/About.vue"),

@@ -11,9 +11,9 @@ const getSurah = async () => {
   loading.value = true;
   try {
     const response = await ApiService.get(
-      "https://api.quran.com/api/v4/chapters?language=ru"
+      "https://quran-endpoint.vercel.app/quran/"
     );
-    surahList.value = response.data.chapters;
+    surahList.value = response.data.data;
   } catch (error) {
     console.error(error);
   } finally {
@@ -30,42 +30,74 @@ getSurah();
       <q-spinner-ios color="secondary" size="30px" />
     </div>
 
-    <q-list class="book-box q-mx-auto" v-else style="max-width: 700px">
-      <q-item
+    <div class="book-card" v-else>
+      <router-link
+        class="book-row text-dark"
         v-for="(surah, n) in surahList"
         :key="n"
-        clickable
-        v-ripple
-        class="book q-pa-md q-px-lg rounded-lg"
-        :to="{ path: `quran/${surah.id}` }"
+        :to="{ path: `quran/${surah.number}` }"
       >
-        <div class="full-width flex justify-between">
-          <div>
-            <div class="text-bold">{{ n + 1 }}. {{ surah.name_simple }}</div>
-            <span class="text-grey-9"> {{ surah.translated_name.name }} </span>
+        <div class="flex">
+          <div class="book-row__number">
+            {{ surah.number }}
           </div>
-          <div class="text-arabic text-green-5">
-            {{ surah.name_arabic }}
+          <div>
+            <div class="book-row__title">{{ surah.asma.en.long }}</div>
+            <span class="book-row__caption">
+              {{ surah.asma.translation.en }}
+            </span>
           </div>
         </div>
-      </q-item>
-    </q-list>
+        <div class="book-row__arabic">
+          {{ surah.asma.ar.short }}
+        </div>
+      </router-link>
+    </div>
   </q-page>
 </template>
 
 <style lang="scss">
-.book-box {
+.book-card {
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
+  max-width: 700px;
+  margin: 0 auto;
 }
-.book {
-  background: rgba(0, 0, 0, 0.5);
-  color: #111;
-  backdrop-filter: blur(4px);
-}
+.book-row {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-decoration: none;
+  border-bottom: 1px solid $grey-3;
+  transition: all 0.2s linear;
 
-.text-arabic {
-  font-family: "Hafs";
+  &:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 4px 12px;
+  }
+
+  &__number {
+    margin-right: 12px;
+    background: $green-2;
+    width: 30px;
+    height: 30px;
+    border-radius: $rounded-sm;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__caption {
+    color: $grey-5;
+    font-size: 12px;
+  }
+
+  &__arabic {
+    color: $green-3;
+    font-family: "Nabi";
+    font-size: 20px;
+  }
 }
 </style>

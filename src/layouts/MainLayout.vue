@@ -21,14 +21,15 @@ watchEffect(() => {
 </script>
 
 <template>
-  <q-layout view="lHh LpR lFf" class="bg-white">
-    <q-header class="text-white">
+  <q-layout view="lHh LpR lFf" class="bg-whie">
+    <q-header class="text-green-3">
       <q-toolbar>
         <q-btn
           v-if="routeName == 'Quran_detail' || routeName == 'Zikr_detail'"
           flat
           icon="arrow_back"
-          color="white"
+          color="green-3"
+          class="rounded-sm"
           size="md"
           @click="goBack"
         />
@@ -40,7 +41,7 @@ watchEffect(() => {
           icon="menu"
           @click="toggleLeftDrawer"
         />
-        <q-toolbar-title class="absolute-center text-h6">
+        <q-toolbar-title class="absolute-center">
           {{ pageName }}
         </q-toolbar-title>
       </q-toolbar>
@@ -86,7 +87,7 @@ watchEffect(() => {
     </q-page-container>
 
     <!--  Mobile Navbar   -->
-    <q-footer bordered class="text-dark lt-sm">
+    <q-footer bordered class="lt-sm">
       <q-list class="flex justify-around items-center q-py-sm">
         <q-item
           v-for="link in appLinks"
@@ -98,7 +99,7 @@ watchEffect(() => {
           exact-active-class
         >
           <q-item-section>
-            <q-icon size="md" color="grey-5" :name="link.icon" />
+            <q-icon size="md" color="green-2" :name="link.icon" />
           </q-item-section>
         </q-item>
       </q-list>
@@ -113,21 +114,20 @@ watchEffect(() => {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.mosque-bg {
-  background-color: $secondary;
-}
-
 .q-header {
-  background: rgba(0, 0, 0, 1);
+  background: white;
   backdrop-filter: blur(4px);
-  border-bottom: 1px solid rgba(0, 0, 0, 1);
+  border-bottom: 1px solid $green-1;
+
+  .q-toolbar__title {
+    font-weight: 600;
+  }
 }
 
 .q-footer {
-  background: rgba(0, 0, 0, 1);
+  background: white;
+  border-color: $green-1;
   backdrop-filter: blur(10px);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   overflow: hidden;
 }
 
@@ -138,13 +138,11 @@ watchEffect(() => {
 
 .q-item.q-router-link--exact,
 .q-item.q-router-link--active {
-  background: $secondary;
-  border-radius: 10px;
-  font-weight: 500;
-  color: #fff !important;
+  border-radius: $rounded-lg;
+  color: $green-3 !important;
 
   .q-icon {
-    color: white !important;
+    color: $green-3 !important;
   }
 }
 
