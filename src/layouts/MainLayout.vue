@@ -116,7 +116,6 @@ watchEffect(() => {
 
 .q-header {
   background: white;
-  backdrop-filter: blur(4px);
   border-bottom: 1px solid $green-1;
 
   .q-toolbar__title {
@@ -127,7 +126,6 @@ watchEffect(() => {
 .q-footer {
   background: white;
   border-color: $green-1;
-  backdrop-filter: blur(10px);
   overflow: hidden;
 }
 
