@@ -71,11 +71,6 @@ getSurah();
   align-items: flex-start;
   text-decoration: none;
   border-bottom: 1px solid $grey-3;
-  transition: all 0.2s linear;
-
-  &:hover {
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 4px 12px;
-  }
 
   &__number {
     margin-right: 12px;
