@@ -1,36 +1,37 @@
 <script setup>
-const imgSrc = (src) => {
-  return new URL(src, import.meta.url);
-};
+import book from "../assets/img/read.svg";
+import listening from "../assets/img/listening.svg";
+import card from "../assets/img/list.svg";
+import tasb from "../assets/img/tasb.svg";
 
 const blocks = [
   {
     title: "Quran",
-    src: imgSrc("../assets/img/read.svg"),
+    src: book,
     color: "#E1FADC",
     path: "Quran",
   },
   {
     title: "Listening",
-    src: imgSrc("../assets/img/listening.svg"),
+    src: listening,
     color: "#FEF6F4",
     path: "Quran",
   },
   {
     title: "Pray times",
-    src: imgSrc("../assets/img/list.svg"),
+    src: card,
     color: "#FFFAF0",
     path: "Dua",
   },
   {
     title: "Hadeeth",
-    src: imgSrc("../assets/img/tasb.svg"),
+    src: tasb,
     color: "#F5F6FD",
     path: "Hadeeths",
   },
   {
     title: "Tafsirs",
-    src: imgSrc("../assets/img/read.svg"),
+    src: book,
     color: "#E1FADC",
     path: "Zikr",
   },
