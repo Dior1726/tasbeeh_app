@@ -22,7 +22,7 @@ watchEffect(() => {
 
 <template>
   <q-layout view="lHh LpR lFf" class="bg-whie">
-    <q-header class="text-green-3">
+    <q-header class="text-green-3 bg-green-1">
       <q-toolbar>
         <q-btn
           v-if="routeName == 'Quran_detail' || routeName == 'Zikr_detail'"

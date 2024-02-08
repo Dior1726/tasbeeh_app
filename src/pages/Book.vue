@@ -95,7 +95,7 @@ getSurah();
   }
 
   &__arabic {
-    color: $green-3;
+    color: $green-5;
     font-family: "Nabi";
     font-size: 20px;
   }
