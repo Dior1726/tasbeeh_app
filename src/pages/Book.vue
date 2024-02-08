@@ -1,39 +1,37 @@
 <script setup>
 import { ref } from "vue";
+import { useQuery } from "@tanstack/vue-query";
 import ApiService from "../services/api.service.js";
+import BaseSpinner from "src/components/BaseSpinner.vue";
 
 const surahList = ref(null);
-const loading = ref(false);
+
+const { data, isLoading } = useQuery({
+  queryKey: ["get_book"],
+  queryFn: () => getSurah(),
+});
 
 // "https://quran-endpoint.vercel.app/quran/"
 
 const getSurah = async () => {
-  loading.value = true;
   try {
     const response = await ApiService.get(
       "https://quran-endpoint.vercel.app/quran/"
     );
-    surahList.value = response.data.data;
+    return response.data.data;
   } catch (error) {
     console.error(error);
-  } finally {
-    loading.value = false;
   }
 };
-
-getSurah();
 </script>
 
 <template>
   <q-page class="q-pa-md">
-    <div class="flex justify-center q-py-md" v-if="loading">
-      <q-spinner-ios color="secondary" size="30px" />
-    </div>
-
+    <base-spinner v-if="isLoading" />
     <div class="book-card" v-else>
       <router-link
         class="book-row text-dark"
-        v-for="(surah, n) in surahList"
+        v-for="(surah, n) in data"
         :key="n"
         :to="{ path: `quran/${surah.number}` }"
       >

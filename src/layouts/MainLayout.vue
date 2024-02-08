@@ -25,7 +25,11 @@ watchEffect(() => {
     <q-header class="text-green-3 bg-green-1">
       <q-toolbar>
         <q-btn
-          v-if="routeName == 'Quran_detail' || routeName == 'Zikr_detail'"
+          v-if="
+            routeName == 'Quran_detail' ||
+            routeName == 'HadeethsDetail' ||
+            routeName == 'HadeethsCategory'
+          "
           flat
           icon="arrow_back"
           color="green-3"

@@ -10,8 +10,8 @@ export const appLinks = [
     icon: "brightness_3",
   },
   {
-    name: "Зикр",
-    path: "/zikr",
+    name: "Хадисы",
+    path: "/hadeeths",
     icon: "spoke",
   },
   {

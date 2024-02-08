@@ -89,7 +89,7 @@ const blocks = [
       flex: 1;
       font-size: 20px;
       color: $green-5;
-      font-weight: bold;
+      font-weight: 500;
     }
 
     &__img {

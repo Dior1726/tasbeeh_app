@@ -46,11 +46,27 @@ const routes = [
         component: () => import("src/pages/BookDetail.vue"),
       },
       {
-        path: "quran",
+        path: "hadeeths",
         name: "Hadeeths",
         component: () => import("src/pages/Hadeeths.vue"),
         meta: {
-          name: "Коран",
+          name: "Хадисы",
+        },
+      },
+      {
+        path: "hadeeths/list-:id",
+        name: "HadeethsCategory",
+        component: () => import("src/pages/HadeethsList.vue"),
+        meta: {
+          name: "",
+        },
+      },
+      {
+        path: "hadeeths/list-:id/one-:itemId",
+        name: "HadeethsDetail",
+        component: () => import("src/pages/HadeethListDetail.vue"),
+        meta: {
+          name: "",
         },
       },
       {
