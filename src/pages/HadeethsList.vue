@@ -19,7 +19,7 @@ const { data, isLoading, isSuccess, refetch, isFetching } = useQuery({
   queryFn: async () => {
     try {
       const { data } = await ApiService.get(
-        `https://hadeethenc.com/api/v1/hadeeths/list/?language=ru&category_id=${id.value}&page=${pagination.value.current_page}&per_page=20`
+        `https://hadeethenc.com/api/v1/hadeeths/list/?language=ru&category_id=${id.value}&page=${pagination.value.current_page}&per_page=10`
       );
       return data;
     } catch (error) {
