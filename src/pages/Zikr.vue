@@ -1,53 +1,40 @@
 <template>
   <q-page class="q-pa-md">
-
-    <q-list class="zikr-box q-mx-auto" style="max-width: 700px;">
-      <q-item
-        v-for="item, n in zikrs" :key="n"
-        clickable 
-        class="zikr q-pa-md q-px-lg rounded-lg"
-        :to="{path: `zikr/${item.id}`, query: {name: item.name}}"
-      >
-        <div class="full-width flex">
-          <div class="q-mr-md">
-            {{n + 1}}
-          </div>
-          <div>
-            {{item.name}}
-          </div>
-        </div>
-      </q-item>
-    </q-list>
-
+    <div class="q-pa-lg bg-green-3 text-white rounded-xl q-mb-lg flex column">
+      <div class="q-mb-md text-h4">Pray times</div>
+      <div class="flex justify-end">
+        <img src="../assets/img/book.svg" />
+      </div>
+    </div>
   </q-page>
 </template>
 
 <script>
 export default {
-  name: 'ZikrPage',
+  name: "ZikrPage",
   data() {
     return {
       zikrs: [
         {
           id: 1,
-          name: 'Alhamdulillah'
+          name: "Alhamdulillah",
         },
         {
           id: 2,
-          name: 'SubhanAllah'
+          name: "SubhanAllah",
         },
         {
           id: 3,
-          name: 'Allahu Akbar'
+          name: "Allahu Akbar",
         },
         {
           id: 4,
-          name: 'La ilaha illAllah'
-        }
-      ]
-    }
-  }
-}
+          name: "La ilaha illAllah",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -57,7 +44,7 @@ export default {
   gap: 10px;
 }
 .zikr {
-  background: rgba(0, 0, 0, .4);
+  background: rgba(0, 0, 0, 0.4);
   color: #fff;
   backdrop-filter: blur(4px);
 }

@@ -16,7 +16,7 @@ const routes = [
         name: "Dua",
         component: () => import("pages/Dua.vue"),
         meta: {
-          name: "Дуа",
+          name: "Время намазов",
         },
       },
       {
@@ -24,7 +24,7 @@ const routes = [
         name: "Zikr",
         component: () => import("pages/Zikr.vue"),
         meta: {
-          name: "Зикры",
+          name: "Тафсир",
         },
       },
       {
