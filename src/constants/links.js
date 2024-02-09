@@ -5,7 +5,7 @@ export const appLinks = [
     icon: "mosque",
   },
   {
-    name: "Дуа",
+    name: "Время намазов",
     path: "/dua",
     icon: "brightness_3",
   },

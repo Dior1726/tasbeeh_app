@@ -1,7 +1,7 @@
 <template>
   <q-page class="q-pa-md">
     <div class="q-pa-lg bg-green-3 text-white rounded-xl q-mb-lg flex column">
-      <div class="q-mb-md text-h4">Pray times</div>
+      <div class="q-mb-md text-h4">Tafsirs</div>
       <div class="flex justify-end">
         <img src="../assets/img/book.svg" />
       </div>
