@@ -22,7 +22,7 @@ watchEffect(() => {
 
 <template>
   <q-layout view="lHh LpR lFf" class="bg-whie">
-    <q-header class="text-green-3 bg-green-1">
+    <q-header class="text-white bg-green-3">
       <q-toolbar>
         <q-btn
           v-if="
@@ -119,7 +119,6 @@ watchEffect(() => {
 }
 
 .q-header {
-  background: white;
   border-bottom: 1px solid $green-1;
 
   .q-toolbar__title {

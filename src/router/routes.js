@@ -20,11 +20,11 @@ const routes = [
         },
       },
       {
-        path: "zikr",
-        name: "Zikr",
-        component: () => import("pages/Zikr.vue"),
+        path: "daily",
+        name: "Daily_things",
+        component: () => import("pages/DailyActions.vue"),
         meta: {
-          name: "Тафсир",
+          name: "Daily sunnah",
         },
       },
       {

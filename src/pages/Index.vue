@@ -12,16 +12,16 @@ const blocks = [
     path: "Quran",
   },
   {
-    title: "Listening",
-    src: listening,
-    color: "#FEF6F4",
-    path: "Quran",
-  },
-  {
     title: "Pray times",
     src: card,
     color: "#FFFAF0",
     path: "Dua",
+  },
+  {
+    title: "Listening",
+    src: listening,
+    color: "#FEF6F4",
+    path: "Quran",
   },
   {
     title: "Hadeeth",
@@ -30,10 +30,10 @@ const blocks = [
     path: "Hadeeths",
   },
   {
-    title: "Tafsirs",
-    src: book,
+    title: "Daily sunnah",
+    src: card,
     color: "#E1FADC",
-    path: "Zikr",
+    path: "Daily_things",
   },
 ];
 </script>
